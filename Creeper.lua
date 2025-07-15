@@ -167,6 +167,7 @@ end
 function programme()
   clear()
   uhr_header()
+  os.execute("cd ~/Creeperos")
   os.execute("mkdir -p programme")
   local list = {}
   for line in io.popen("ls programme"):lines() do table.insert(list, line) end
@@ -186,7 +187,7 @@ function editor()
   uhr_header()
   io.write("Name des Programms (ohne .lua): ")
   local name = io.read()
-  local path = "programme/"..name..".lua"
+  local path = "~/Creeperos/programme/"..name..".lua"
   os.execute(string.format("nano %s",path))
 end
 
