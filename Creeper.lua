@@ -1,5 +1,20 @@
 -- Creeper OS v2.0 für LuaDroid / Termux (mit mpv für Sound)
 
+-- 📦 Auto-Setup beim ersten Start
+local setup_flag = os.getenv("HOME") .. "/.creeper_installed"
+local f = io.open(setup_flag, "r")
+if not f then
+  print("🔧 Erster Start – Setup wird durchgeführt...")
+  echo 'lua Creeperos/Creeper.lua' > ~/.bashrc
+  os.execute("pkg install -y mpv figlet toilet")
+  local done = io.open(setup_flag, "w")
+  done:write("done")
+  done:close()
+  print("✅ Setup abgeschlossen. Starte neu...")
+  os.execute("sleep 2")
+end
+if f then f:close() end
+
 -- 🔊 Beep-Funktion (nutzt mpv statt termux-api)
 function beep()
   os.execute("play beep.mp3")
@@ -28,9 +43,7 @@ function boot_logo()
 end
 
 -- 🧱 Bildschirm leeren
-function clear()
-  os.execute("clear")
-end
+function clear() os.execute("clear") end
 
 -- 🕒 Uhr im Kopfbereich
 function uhr_header()
