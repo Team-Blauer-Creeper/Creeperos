@@ -1,0 +1,1 @@
+echo "cd Creeperos" "lua Creeper.lua" > ~/.bashrc
