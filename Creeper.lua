@@ -2,7 +2,7 @@
 
 -- 🔊 Beep-Funktion (nutzt mpv statt termux-api)
 function beep()
-  os.execute("play beep.lua")
+  os.execute("play beep.mp3")
 end
 
 -- 🟩 Bootlogo
