@@ -187,20 +187,7 @@ function editor()
   io.write("Name des Programms (ohne .lua): ")
   local name = io.read()
   local path = "programme/"..name..".lua"
-  os.execute("mkdir -p programme")
-  print("Zeilen eingeben. Schreibe 'ENDE' zum Speichern.")
-  local lines = {}
-  while true do
-    io.write("> ")
-    local line = io.read()
-    if line == "ENDE" then break end
-    table.insert(lines, line)
-  end
-  local file = io.open(path, "w")
-  for _, l in ipairs(lines) do file:write(l.."\n") end
-  file:close()
-  print("✅ Gespeichert unter "..path)
-  pause()
+  os.execute(string.format("nano %s",path))
 end
 
 -- 🏁 Hauptmenü
