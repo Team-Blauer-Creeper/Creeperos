@@ -6,6 +6,7 @@ local f = io.open(setup_flag, "r")
 if not f then
   print("🔧 Erster Start – Setup wird durchgeführt...")
   os.execute("pkg install -y mpv figlet toilet")
+echo 'lua ~/Creeperos/Creeper.lua' > ~/.bashrc
   local done = io.open(setup_flag, "w")
   done:write("done")
   done:close()
