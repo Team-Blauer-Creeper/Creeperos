@@ -17,7 +17,7 @@ if f then f:close() end
 
 -- 🔊 Beep-Funktion (nutzt mpv statt termux-api)
 function beep()
-  os.execute("play beep.mp3")
+  os.execute("play Creeperos/beep.mp3")
 end
 
 -- 🟩 Bootlogo
